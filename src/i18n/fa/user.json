@@ -1,0 +1,8 @@
+{
+  "user.min_length_pass": "حداقل طول رمزعبور باید پنج کاراکتر باشد.",
+  "user.already_exists": "این شماره موبایل قبلا استفاده شده است.",
+  "user.already_accepted": "شما کاربر مجاز شده اید.",
+  "user.wrong_code": "کد نامعتبر است.",
+  "user.wrong_pass": "رمزعبور اشتباه است.",
+  "user.unAuthorized": "شما هنوز تایید نشده اید."
+}
