@@ -5,6 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { hashPassword } from 'src/utils/bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User, UserDocument } from './models/user.schema';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UserService {
@@ -37,7 +38,10 @@ export class UserService {
 
   async findOneAndUpdate(
     filterQuery: FilterQuery<UserDocument>,
+    updateUserDto: UpdateUserDto,
   ): Promise<UserDocument> {
-    return await this.userModel.findOneAndUpdate(filterQuery);
+    return await this.userModel.findOneAndUpdate(filterQuery, updateUserDto, {
+      new: true,
+    });
   }
 }
