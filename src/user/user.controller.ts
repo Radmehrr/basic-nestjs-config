@@ -14,6 +14,7 @@ import { UserDocument } from './models/user.schema';
 import { JwtAuthGuard } from './strategy/jwt-guard.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './user.service';
+import { hashPassword } from 'src/utils/bcrypt';
 
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard)
@@ -33,9 +34,17 @@ export class UserController {
     @User() user: UserDocument,
     @Body() updateUserDto: UpdateUserDto,
   ) {
-    return await this.userService.findOneAndUpdate(
+    const updatedUser: UserDocument = await this.userService.findOneAndUpdate(
       { _id: user._id },
       updateUserDto,
     );
+
+    if (updateUserDto.password) {
+      const hash = hashPassword(updateUserDto.password);
+      updatedUser.password = hash;
+      updatedUser.save();
+    }
+
+    return updatedUser;
   }
 }

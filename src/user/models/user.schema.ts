@@ -1,6 +1,7 @@
 import { Prop, SchemaFactory, Schema } from '@nestjs/mongoose';
 import { UserRole } from '../enum/user-role.enum';
 import { Document } from 'mongoose';
+import { AddressDocument, AddressSchema } from './address.schema';
 
 export type UserDocument = User & Document;
 
@@ -30,6 +31,9 @@ export class User {
 
   @Prop({ type: Number })
   code: number;
+
+  @Prop({ type: AddressSchema, default: null })
+  address: AddressDocument | null;
 
   @Prop({ type: Number, default: now() })
   createdAt: number;
