@@ -8,6 +8,7 @@ import { User, UserSchema } from './models/user.schema';
 import { UserAuthController } from './user-auth.controller';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
+import { SimcartModule } from 'src/simcart/simcart.module';
 
 @Module({
   imports: [
@@ -26,5 +27,6 @@ import { PassportModule } from '@nestjs/passport';
   ],
   controllers: [UserController, UserAuthController],
   providers: [UserService, JwtStrategy],
+  exports: [UserService, JwtStrategy],
 })
 export class UserModule {}

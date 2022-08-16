@@ -3,6 +3,7 @@ import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TranslatorModule } from 'nestjs-translator';
+import { SimcartModule } from './simcart/simcart.module';
 import * as Joi from 'joi';
 
 @Module({
@@ -24,6 +25,8 @@ import * as Joi from 'joi';
     }),
 
     UserModule,
+
+    SimcartModule,
   ],
 })
 export class AppModule {}
