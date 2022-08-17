@@ -16,6 +16,7 @@ import * as Joi from 'joi';
         DATABASE_URL: Joi.string().required(),
         PORT: Joi.number().required(),
         JWT_SECRET: Joi.string().required(),
+        START_DATE: Joi.number().required(),
       }),
     }),
 

@@ -9,6 +9,7 @@ import { UserAuthController } from './user-auth.controller';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { SimcartModule } from 'src/simcart/simcart.module';
+import { AdminUsersController } from 'src/admin/admin-users.controller';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { SimcartModule } from 'src/simcart/simcart.module';
       inject: [ConfigService],
     }),
   ],
-  controllers: [UserController, UserAuthController],
+  controllers: [UserController, UserAuthController, AdminUsersController],
   providers: [UserService, JwtStrategy],
   exports: [UserService, JwtStrategy],
 })

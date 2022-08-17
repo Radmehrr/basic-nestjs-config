@@ -25,6 +25,12 @@ export class Simcart {
 
   @Prop({ type: String, enum: Object.values(SimType), required: true })
   type: SimType;
+
+  @Prop({ type: Number, default: now() })
+  createdAt: number;
+
+  @Prop({ type: Number, default: now() })
+  updatedAt: number;
 }
 
 export const SimcartSchema = SchemaFactory.createForClass(Simcart);
